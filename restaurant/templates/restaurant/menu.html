@@ -1,0 +1,38 @@
+{% extends 'restaurant/base.html' %}
+
+{% block head %}
+Menu Page
+{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center">
+    Restaurant Menu Page.
+</h2>
+
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5 style='text-align: center'>Menu Item</h5>    
+        </div>
+        <div class="card card-body">
+            <table class="table">
+                <tr>
+                    <th style='text-align: center'>Item Name</th>
+                    <th style='text-align: center'>Item Price (in ₹)</th>
+                </tr>
+                {% for i in menu_item %}
+                    <tr>
+                        <td style='text-align: center'>{{i.item_name}}</td>
+                        <td style='text-align: center'>{{i.set_price}}</td>
+                    </tr>
+                {% endfor %}
+                
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

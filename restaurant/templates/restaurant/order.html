@@ -1,0 +1,38 @@
+{% extends 'restaurant/base.html' %}
+
+{% block head %}
+Order
+{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center">
+    Restaurant Order Page.
+</h2>
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5 style='text-align: center'>All Orders</h5>    
+        </div>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'manage_order' %}">Add Order</a>
+            <table class="table">
+                <tr>
+                    <th>Item Name</th>
+                    <th>Time</th>
+                    <th>Manage Order<th>
+                </tr>
+                {% for i in order %}
+                    <tr>
+                        <td>{{i.menu_item}}</td>
+                        <td>{{i.time_stamp}}</td>
+                        <td><a class="btn btn-outline-info btn-sm btn-block" href="{% url 'updateOrder' i.id %}">Update Order</td>
+                        <td><a class="btn btn-outline-danger btn-sm btn-block" href="{% url 'deleteOrder' i.id %}">Delete Order</td>
+                    </tr>
+                {% endfor %}
+                
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

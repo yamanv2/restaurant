@@ -1,0 +1,19 @@
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+<br>
+<div class="row" >
+    <div class="col-md-12">
+        <div class="card card-body" style="text-align: center">
+        <p>Are you sure you want to delete "{{item}}?"</p>
+
+        <form action="{% url 'deleteOrder' item.id %}" method="POST">
+            {% csrf_token %}
+
+            <a href="{% url 'order_page'%}" >Cancel</a>
+            <input class="btn btn-danger" type="submit" name="Confirm" value="Delete">
+        </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
